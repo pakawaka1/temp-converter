@@ -1,51 +1,41 @@
+const h3 = document.querySelector('#newTemp');
+const oldTemp = prompt('What temperature do you wish to convert?');
+// console.log(oldTemp);
+const temp = parseInt(oldTemp);
+// console.log(temp);
 
+const scale = prompt(
+  'To what scale do you wish to convert your temperature?  Please enter "C" or "F":'
+);
+//console.log(scale);
 
-// // Day 6 Take Home
+if (scale === 'C') {
+  let newTemp = Math.round(temp * (5 / 9) - 32);
 
-// input.value = 56;
+  h3.innerHTML = newTemp;
+  // console.log(newTemp);
+} else {
+  let newTemp = Math.round(temp * (9 / 5) + 32);
 
-
-//Ask your user to give you a scale (Celcius or Fahrenheit)
-
-
-// const myTemp = prompt("What is your temperature?");
-
-const temp = document.querySelector('#myTemp');
-
-console.log(temp);
-
-
-
-
-//and the temperature they want to convert. So if they give you 90 Fahrenheit, they would want you to convert 90 degrees Fahrenheit to whatever that is in Celcius
-
-
-
-
-// const myScale = prompt("To what scale do you wish to convert your temperature? Please select F or C");
-// alert(myScale);
-
-
-const scale = document.querySelector('#myScale')
-console.log(scale);
-
-
-
-//Employ a function that accepts those two values as arguments: temperature and scale (either celcius or fahrenheit) and converts the tempurature they gave you to the opposite scale.
-
-function myConvert(temp, scale) {
-  if (scale === 'C') {
-    let convert = (temp * (9 / 5)) + 32
-    console.log(convert);
-  } else {
-    let convert = (temp - 32) * (5 / 9);
-    console.log(convert);
-  }
-  document.getElementById("newTemp").innerHTML = convert;
+  h3.innerHTML = newTemp;
+  // console.log(newTemp);
 }
 
+// document.addEventListener('click', event => {
+//   console.log(event);
 
-///Here is to 
-// Display the temperature in an h3 with minimal styling.
+//   if (scale === 'C') {
+//     let newTemp = temp - 32 * (5 / 9);
+//     console.log(newTemp);
+//     h3.t
+//   } else {
+//     let newTemp = (temp * 9) / 5 + 32;
+//     console.log(newTemp);
+//   }
+//   document.getElementById('newTemp').innerHTML = newTemp;
+// }
+
+// ///Here is to
+// // Display the temperature in an h3 with minimal styling.
 // From that point on, when the user clicks on the h3, run the function to convert the temperature back and forth between Celcius and Fahrenheit.
 // Display the converted temperature in the h3 each time it is changed.g
