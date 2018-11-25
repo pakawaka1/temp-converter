@@ -1,4 +1,6 @@
-const h3 = document.querySelector('#newTemp');
+const cel = document.querySelector('h3');
+const fah = document.querySelector('h3');
+
 const oldTemp = prompt('What temperature do you wish to convert?');
 // console.log(oldTemp);
 const temp = parseInt(oldTemp);
@@ -10,30 +12,37 @@ const scale = prompt(
 //console.log(scale);
 
 if (scale === 'C') {
-  let newTemp = Math.round(temp * (5 / 9) - 32);
-
-  h3.innerHTML = newTemp;
+  let newTemp = Math.round((temp - 32) * (5 / 9));
   // console.log(newTemp);
+  cel.innerHTML = newTemp;
+  cel.addEventListener('click', function(event) {
+    // console.log(event);
+    // console.log(temp);
+    // cel.innerHTML = temp;
+    if (cel.innerHTML == newTemp) {
+      cel.innerHTML = temp;
+    } else if (cel.innerHTML == temp) {
+      cel.innerHTML = newTemp;
+    } else {
+      cel.innerHTML = newTemp;
+    }
+  });
 } else {
   let newTemp = Math.round(temp * (9 / 5) + 32);
-
-  h3.innerHTML = newTemp;
   // console.log(newTemp);
+  fah.innerHTML = newTemp;
+  fah.addEventListener('click', function(event) {
+    // console.log(event);
+    // console.log(temp);
+    if (fah.innerHTML == newTemp) {
+      fah.innerHTML = temp;
+    } else if (fah.innerHTML == temp) {
+      fah.innerHTML = newTemp;
+    } else {
+      fah.innerHTML = newTemp;
+    }
+  });
 }
-
-// document.addEventListener('click', event => {
-//   console.log(event);
-
-//   if (scale === 'C') {
-//     let newTemp = temp - 32 * (5 / 9);
-//     console.log(newTemp);
-//     h3.t
-//   } else {
-//     let newTemp = (temp * 9) / 5 + 32;
-//     console.log(newTemp);
-//   }
-//   document.getElementById('newTemp').innerHTML = newTemp;
-// }
 
 // ///Here is to
 // // Display the temperature in an h3 with minimal styling.
